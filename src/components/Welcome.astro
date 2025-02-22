@@ -1,11 +1,21 @@
 ---
+import { getImage, Image } from "astro:assets";
+import kiWorkflow from "../../public/images/ki-workflow.png";
+import integrations from "../../public/images/integrations.png";
 
+const bgImage = await getImage({
+  src: '/images/maxim-berg-kE8-rUKjtQU-unsplash.jpg',
+  width: 1920,
+  height: 1080,
+  quality: 80,
+  format: 'webp'
+});
 ---
 
 <!-- Hero Section with Background Image -->
 <section
   class="relative flex flex-col items-center justify-center min-h-screen bg-cover bg-center px-4"
-  style="background-image: url('/images/maxim-berg-kE8-rUKjtQU-unsplash.jpg');"
+  style={`background-image: url('${bgImage.src}');`}
 >
   <!-- Farbüberzug -->
   <div class="absolute inset-0 bg-gray-900 opacity-50"></div>
@@ -19,7 +29,7 @@
     </p>
     <button
       class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded"
-       onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });"
+      onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });"
     >
       Jetzt kontaktieren
     </button>
@@ -94,27 +104,34 @@
     <h2 class="text-3xl font-bold text-center mb-6">
       KI-Agent Workflow-Beispiel
     </h2>
-    <img
-      src="/images/ki-workflow.png"
+    <Image
+      src={kiWorkflow}
       alt="Automations-Workflow"
+      width={1200}
+      quality={80}
+      format="webp"
       class="mx-auto w-full max-w-screen-md rounded shadow"
     />
   </div>
 </section>
 
 <section class="py-12 bg-gray-50">
-	<div class="container mx-auto px-4">
-	  <h2 class="text-3xl font-bold text-center mb-6">Vielfältige Integration</h2>
-	  <p class="text-center text-gray-700 mb-6">
-		Wir bieten zahlreiche fertige Integrationslösungen für deine Enterprise-Software.
-	  </p>
-	  <img
-		src="/images/integrations.png"
-		alt="Automations-Workflow"
-		class="mx-auto w-full max-w-screen-md rounded shadow"
-	  />
-	</div>
-  </section>
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-6">Vielfältige Integration</h2>
+    <p class="text-center text-gray-700 mb-6">
+      Wir bieten zahlreiche fertige Integrationslösungen für deine
+      Enterprise-Software.
+    </p>
+    <Image
+      src={integrations}
+      alt="Automations-Workflow"
+      width={1200}
+      quality={80}
+      format="webp"
+      class="mx-auto w-full max-w-screen-md rounded shadow"
+    />
+  </div>
+</section>
 
 <!-- Kontakt Section -->
 <section id="contact" class="py-12 bg-gray-200">
@@ -152,8 +169,7 @@
           placeholder="Nachricht"
           class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none"
           rows="4"
-          required
-        ></textarea>
+          required></textarea>
       </div>
       <button
         class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded font-semibold"
@@ -168,8 +184,6 @@
 <!-- Impressum Link Section -->
 <section class="py-4 bg-gray-200">
   <div class="container mx-auto px-4 text-center">
-    <a href="/impressum" class="text-blue-500 hover:underline">
-      Impressum
-    </a>
+    <a href="/impressum" class="text-blue-500 hover:underline"> Impressum </a>
   </div>
 </section>
