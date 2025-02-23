@@ -1,0 +1,97 @@
+---
+import { Icon } from "astro-icon/components";
+
+const devIcons = [
+  "devicon:slack",
+  "devicon:google-wordmark",
+  "devicon:github",
+  "devicon:docker",
+  "devicon:salesforce",
+  "devicon:postgresql-wordmark",
+  "devicon:bitbucket-wordmark",
+  "devicon:jira-wordmark",
+  "devicon:confluence-wordmark",
+  "devicon:trello-wordmark",
+  "devicon:facebook",
+  "devicon:mongodb-wordmark",
+  "devicon:gitlab-wordmark",
+  "devicon:digitalocean-wordmark",
+  "logos:sap",
+  "logos:google-gmail",
+  // Weitere Icons ...
+];
+
+const allIcons = devIcons.concat(devIcons).concat(devIcons).concat(devIcons);
+---
+
+<section class="py-12 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-6">Vielfältige Integration</h2>
+    <p class="text-center text-gray-700 mb-6">
+      Wir bieten zahlreiche fertige Integrationslösungen für deine
+      Enterprise-Software. Unten siehst du eine kleine Auswahl an unterstützten
+      Tools & Technologien:
+    </p>
+    <!-- Container auf gewünschte Breite -->
+    <div
+      class="w-1/2 mx-auto overflow-hidden bg-white shadow-lg rounded-lg p-5"
+    >
+      <!-- Obere Zeile: Animation von 0 bis -100% -->
+      <div class="marquee-inner marquee-top flex space-x-8 mb-4">
+        {
+          allIcons.map((icon) => (
+            <div class="icon-container">
+              <Icon name={icon} class="text-6xl" />
+            </div>
+          ))
+        }
+      </div>
+      <!-- Untere Zeile: Animation von 0 bis 100% (umgekehrt) -->
+      <div class="marquee-inner marquee-bottom flex space-x-8 pt-4">
+        {
+          allIcons.reverse().map((icon) => (
+            <div class="icon-container">
+              <Icon name={icon} class="text-6xl" />
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Sicherstellen, dass alles in einer Zeile bleibt */
+  .marquee-inner {
+    white-space: nowrap;
+  }
+  .marquee-top {
+    animation: scroll-left 60s linear infinite;
+  }
+  .marquee-bottom {
+    animation: scroll-right 60s linear infinite;
+    flex-direction: row-reverse; /* Icons in umgekehrter Reihenfolge anzeigen */
+  }
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  @keyframes scroll-right {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  .icon-container {
+    transition: transform 0.3s ease;
+  }
+  .icon-container:hover {
+    transform: scale(1.2);
+  }
+</style>
