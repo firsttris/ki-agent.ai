@@ -1,11 +1,15 @@
 ---
-import { useTranslations } from "../../i18n/utils";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 
 const t = useTranslations(Astro.url.pathname);
+const lang = getLangFromUrl(Astro.url.pathname);
+const link = `${lang}/imprint`;
 ---
 
 <section class="py-4 bg-gray-200">
-    <div class="container mx-auto px-4 text-center">
-      <a href="/impressum" class="text-blue-500 hover:underline">{t('imprint')}</a>
-    </div>
-  </section>
+  <div class="container mx-auto px-4 text-center">
+    <a href={link} class="text-blue-500 hover:underline"
+      >{t("imprint")}</a
+    >
+  </div>
+</section>

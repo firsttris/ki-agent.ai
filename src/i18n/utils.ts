@@ -1,7 +1,7 @@
 import type { JSX } from 'astro/jsx-runtime';
 import { translations, defaultLang } from './translations';
 
-const getLangFromUrl = (pathname: string) => {
+export const getLangFromUrl = (pathname: string) => {
   const lang = pathname.includes('/de') ? 'de' : 'en';
   if (lang in translations) return lang as keyof typeof translations;
   return defaultLang;
