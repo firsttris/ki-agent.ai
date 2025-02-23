@@ -1,0 +1,11 @@
+---
+import { useTranslations } from "../../i18n/utils";
+
+const t = useTranslations(Astro.url.pathname);
+---
+
+<section class="py-4 bg-gray-200">
+    <div class="container mx-auto px-4 text-center">
+      <a href="/impressum" class="text-blue-500 hover:underline">{t('imprint')}</a>
+    </div>
+  </section>

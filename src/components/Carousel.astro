@@ -16,16 +16,33 @@ const devIcons = [
   "devicon:mongodb-wordmark",
   "devicon:gitlab-wordmark",
   "devicon:digitalocean-wordmark",
+  "devicon:heroku",
+  "devicon:redis",
+  "devicon:mysql",
+  "devicon:oracle",
+  "devicon:azure",
+  "devicon:react",
+  "devicon:nodejs",
+  "devicon:python",
+  "devicon:java",
+  "devicon:typescript",
+  "devicon:linux",
+  "devicon:php",
+  "devicon:dot-net",
+  "devicon:jenkins",
+  "devicon:firebase",
   "logos:sap",
   "logos:google-gmail",
-  // Weitere Icons ...
+  "logos:google-drive",
+  "logos:google-calendar",
+  "logos:google-cloud",
+  "logos:google-maps",
 ];
 
 const allIcons = devIcons.concat(devIcons).concat(devIcons).concat(devIcons);
 ---
 
-<div class="w-1/2 mx-auto overflow-hidden bg-white shadow-lg rounded-lg p-5">
-  <!-- Obere Zeile: Animation von 0 bis -100% -->
+<div class="w-3/4 mx-auto overflow-hidden bg-white shadow-lg rounded-lg p-5">
   <div class="marquee-inner marquee-top flex space-x-8 mb-4">
     {
       allIcons.map((icon) => (
@@ -35,7 +52,6 @@ const allIcons = devIcons.concat(devIcons).concat(devIcons).concat(devIcons);
       ))
     }
   </div>
-  <!-- Untere Zeile: Animation von 0 bis 100% (umgekehrt) -->
   <div class="marquee-inner marquee-bottom flex space-x-8 pt-4">
     {
       allIcons.reverse().map((icon) => (
@@ -48,7 +64,6 @@ const allIcons = devIcons.concat(devIcons).concat(devIcons).concat(devIcons);
 </div>
 
 <style>
-  /* Sicherstellen, dass alles in einer Zeile bleibt */
   .marquee-inner {
     white-space: nowrap;
   }
@@ -57,7 +72,7 @@ const allIcons = devIcons.concat(devIcons).concat(devIcons).concat(devIcons);
   }
   .marquee-bottom {
     animation: scroll-right 60s linear infinite;
-    flex-direction: row-reverse; /* Icons in umgekehrter Reihenfolge anzeigen */
+    flex-direction: row-reverse; 
   }
   @keyframes scroll-left {
     0% {
@@ -79,6 +94,6 @@ const allIcons = devIcons.concat(devIcons).concat(devIcons).concat(devIcons);
     transition: transform 0.3s ease;
   }
   .icon-container:hover {
-    transform: scale(1.2);
+    transform: scale(1.3);
   }
 </style>

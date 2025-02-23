@@ -1,0 +1,69 @@
+---
+import { useTranslations } from "../../i18n/utils";
+
+const t = useTranslations(Astro.url.pathname);
+---
+
+<section class="py-12 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-6">{t('services.title')}</h2>
+    <div class="flex flex-wrap justify-center">
+      <div
+        class="max-w-sm rounded overflow-hidden shadow-lg m-4 p-6 text-center services-container"
+      >
+        <h3 class="text-xl font-bold mb-2">{t('services.individual_agents.title')}</h3>
+        <p class="text-gray-700">
+          {t('services.individual_agents.description')}
+        </p>
+      </div>
+      <div
+        class="max-w-sm rounded overflow-hidden shadow-lg m-4 p-6 text-center services-container"
+      >
+        <h3 class="text-xl font-bold mb-2">{t('services.automation.title')}</h3>
+        <p class="text-gray-700">
+          {t('services.automation.description')}
+        </p>
+      </div>
+      <div
+        class="max-w-sm rounded overflow-hidden shadow-lg m-4 p-6 text-center services-container"
+      >
+        <h3 class="text-xl font-bold mb-2">{t('services.process_automation.title')}</h3>
+        <p class="text-gray-700">
+          {t('services.process_automation.description')}
+        </p>
+      </div>
+      <div
+        class="max-w-sm rounded overflow-hidden shadow-lg m-4 p-6 text-center services-container"
+      >
+        <h3 class="text-xl font-bold mb-2">{t('services.dashboards.title')}</h3>
+        <p class="text-gray-700">
+          {t('services.dashboards.description')}
+        </p>
+      </div>
+      <div
+        class="max-w-sm rounded overflow-hidden shadow-lg m-4 p-6 text-center services-container"
+      >
+        <h3 class="text-xl font-bold mb-2">{t('services.customer_service.title')}</h3>
+        <p class="text-gray-700">
+          {t('services.customer_service.description')}
+        </p>
+      </div>
+      <div
+        class="max-w-sm rounded overflow-hidden shadow-lg m-4 p-6 text-center services-container"
+      >
+        <h3 class="text-xl font-bold mb-2">{t('services.ecommerce.title')}</h3>
+        <p class="text-gray-700">
+          {t('services.ecommerce.description')}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .services-container {
+    transition: transform 0.3s ease;
+  }
+  .services-container:hover {
+    transform: scale(1.1);
+  }
+</style>

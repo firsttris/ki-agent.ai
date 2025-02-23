@@ -1,0 +1,35 @@
+---
+import { getImage } from "astro:assets";
+import { useTranslations } from "../../i18n/utils";
+
+const bgImage = await getImage({
+  src: "/images/maxim-berg-kE8-rUKjtQU-unsplash.jpg",
+  width: 1920,
+  height: 1080,
+  quality: 80,
+  format: "webp",
+});
+
+const t = useTranslations(Astro.url.pathname);
+---
+
+<section
+  class="relative flex flex-col items-center justify-center min-h-screen bg-cover bg-center px-4"
+  style={`background-image: url('${bgImage.src}');`}
+>
+  <div class="absolute inset-0 bg-gray-900 opacity-50"></div>
+  <div class="relative z-10 text-center text-gray-50">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">
+      {t("header.title")}
+    </h1>
+    <p class="text-lg md:text-xl max-w-xl mx-auto mb-6">
+      {t("header.subtitle")}
+    </p>
+    <button
+      class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded cursor-pointer"
+      onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });"
+    >
+      {t("header.button")}
+    </button>
+  </div>
+</section>
