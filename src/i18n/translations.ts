@@ -49,7 +49,7 @@ export const translations = {
         "contact.title": 'Transformiere deine Geschäftsprozesse mit maßgeschneiderten KI-Lösungen.',
         "contact.button": 'Senden',
         "aboutme.title": 'Über mich',
-        "aboutme.text": 'Ich bin Tristan Teufel – Ihr Ansprechpartner für individuelle KI- Lösungen.Seit über 10 Jahren bin ich in der Softwareentwicklung tätig und habe erfolgreich Projekte für viele bekannte große Enterprise- Unternehmen umgesetzt.Mit Leidenschaft und Expertise unterstützen mein Team und ich Unternehmen dabei, ihre Prozesse zu automatisieren.Mehr über meinen Werdegang finden Sie in meinem ',
+        "aboutme.text": 'Ich bin Tristan Teufel – Ihr Ansprechpartner für individuelle KI- Lösungen. Seit über 10 Jahren bin ich in der Softwareentwicklung tätig und habe erfolgreich Projekte für viele bekannte große Enterprise- Unternehmen umgesetzt. Mit Leidenschaft und Expertise unterstützen mein Team und ich Unternehmen dabei, ihre Prozesse zu automatisieren.Mehr über meinen Werdegang finden Sie in meinem ',
         'imprint': 'Impressum',
         'integration.title': 'Über 450 sofort einsatzbereite Integrations- Lösungen',
         'integration.text': 'Wir bieten zahlreiche fertige Integrationslösungen für deine Enterprise-Software.',
