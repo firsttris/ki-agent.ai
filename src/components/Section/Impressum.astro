@@ -3,7 +3,7 @@ import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 
 const t = useTranslations(Astro.url.pathname);
 const lang = getLangFromUrl(Astro.url.pathname);
-const link = `${lang}/imprint`;
+const link = `/${lang}/imprint`;
 ---
 
 <section class="py-4 bg-gray-200">
