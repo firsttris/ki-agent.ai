@@ -1,8 +1,12 @@
 ---
-import Welcome from '../../components/Welcome.astro';
-import Layout from '../../layouts/Layout.astro';
+import Welcome from "../../components/Welcome.astro";
+import Layout from "../../layouts/Layout.astro";
 ---
 
 <Layout>
-	<Welcome />
+  <link rel="canonical" href="https://ki-agent.de/de/" />
+  <link rel="alternate" hreflang="de" href="https://ki-agent.de/de/" />
+  <link rel="alternate" hreflang="en" href="https://ki-agent.de/en/" />
+  <link rel="alternate" hreflang="x-default" href="https://ki-agent.de/" />
+  <Welcome />
 </Layout>
