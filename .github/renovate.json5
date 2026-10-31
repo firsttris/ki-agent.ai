@@ -1,0 +1,53 @@
+// Renovate (GitHub App, https://github.com/apps/renovate): a pull request for each new release of
+// what the site builds on, plus the "Dependency Dashboard" issue listing what is open.
+// Only those: Astro with astro-icon and the withastro/action that builds and uploads the site,
+// Tailwind CSS, and the Node of the workflows. The icon sets and the other actions are not tracked
+// here. Check with `npx --package renovate renovate-config-validator .github/renovate.json5`.
+{
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  extends: ["config:recommended"],
+  enabledManagers: ["npm", "github-actions", "custom.regex"],
+  timezone: "Europe/Berlin",
+  labels: ["dependencies"],
+  automerge: false,
+  customManagers: [
+    {
+      // The Node of the build and deploy workflows (withastro/action's node-version)
+      customType: "regex",
+      managerFilePatterns: ["/^\\.github/workflows/[^/]+\\.ya?ml$/"],
+      matchStrings: ["\\n\\s+node-version: (?<currentValue>\\d+)"],
+      depNameTemplate: "node",
+      datasourceTemplate: "node-version",
+      versioningTemplate: "node",
+    },
+  ],
+  packageRules: [
+    {
+      // From npm and the actions only what is below
+      matchManagers: ["npm", "github-actions"],
+      enabled: false,
+    },
+    {
+      // Astro, astro-icon and withastro/action in one PR: a new Astro major usually needs a new
+      // astro-icon and a newer action
+      matchPackageNames: ["astro", "@astrojs/**", "astro-icon", "withastro/action"],
+      enabled: true,
+      groupName: "Astro",
+      sourceUrl: "https://github.com/withastro/astro",
+      prBodyNotes: [
+        "Before merging: read the Astro upgrade guide of each major (https://docs.astro.build/en/upgrade-astro/) and its Node requirement (`node-version` in both workflows; Astro 7 needs Node >= 22.12). The Check Build run of this PR builds the site; locally `npm run build && npm run preview` and look at the pages and the sitemap.",
+      ],
+    },
+    {
+      matchPackageNames: ["tailwindcss", "@tailwindcss/**"],
+      enabled: true,
+      groupName: "Tailwind CSS",
+      sourceUrl: "https://github.com/tailwindlabs/tailwindcss",
+    },
+    {
+      matchPackageNames: ["node"],
+      groupName: "Node",
+      sourceUrl: "https://github.com/nodejs/node",
+    },
+  ],
+}
